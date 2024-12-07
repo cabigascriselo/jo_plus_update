@@ -1,0 +1,41 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h3>Part ID:  {{ part.id }}</h3>
+<h3>Part name:  {{ part }}</h3>
+
+ <h3>Job Order List</h3>
+      <style>
+         table, th, td {
+         border: 1px solid black;
+         border-collapse: collapse;
+         }
+      </style>
+      <table style="width:100%">
+         <tr>
+            <th>Details</th>
+            <th>JO ID</th>
+            <th>Date</th>
+            <th>Equipment</th>
+            <th>Requestor</th>
+            <th>Complaint</th>
+            <th>Open</th>
+         </tr>
+   {% for jo_list in parts_lists %}
+         <tr>
+            <td><a href="{% url 'job_order:jo_list' jo_list.id %}">Click</a></td>
+            <td>{{ jo_list.id }}</td>
+            <td>{{ jo_list.date }}</td>
+            <td>{{ jo_list.equipment }}</td>
+            <td>{{ jo_list.requestor }}</td>
+            <td>{{ jo_list.complaint }}</td>
+            <td>{{ jo_list.status }}</td>
+         </tr>
+      
+  {% empty %}
+     <li>No data</li>
+  {% endfor %}
+      </table>
+<p><a href="{% url 'job_order:edit_parts' part.id %}">Edit parts</a></p>
+<p><a href="{% url 'job_order:my_main' %}">Back to main menu</a></p>
+{% endblock %}

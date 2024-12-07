@@ -1,0 +1,74 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h3>Equipment ID: {{ equipment.id }}</h3>
+<h3>Equipment: {{ equipment }}</h3>
+ <ul>
+    <br>
+  <p>Parts</p>
+  <ol>
+   {% for part in spare_parts %}
+   <li> <a href="{% url 'job_order:part' part.id %}">{{ part }}</a></li>
+   {% empty %}
+   <li>No data</li>
+   {% endfor %}
+  </ol>
+  <br>
+  <h4>Job Order List</h4>
+  <style>
+     table, th, td {
+     border: 1px solid black;
+     border-collapse: collapse;
+     }
+  </style>
+  <table style="width:100%">
+     <tr>
+        <th>Details</th>
+        <th>JO ID</th>
+        <th>Date</th>
+        <th>Equipment</th>
+        <th>Requestor</th>
+        <th>Complaint</th>
+        <th>Open</th>
+     </tr>
+{% for jo_list in job_order %}
+     <tr>
+        <td><a href="{% url 'job_order:jo_list' jo_list.id %}">Click</a></td>
+        <td>{{ jo_list.id }}</td>
+        <td>{{ jo_list.date }}</td>
+        <td>{{ jo_list.equipment }}</td>
+        <td>{{ jo_list.requestor }}</td>
+        <td>{{ jo_list.complaint }}</td>
+        <td>{{ jo_list.status }}</td>
+     </tr>
+  
+{% empty %}
+ <li>No data</li>
+{% endfor %}
+
+  </table>
+</ul>
+  <br>
+  <style>
+   table, th, td {
+   border: 1px solid black;
+   border-collapse: collapse;
+   }
+</style>
+<table style="width:100%">
+   <tr>
+      <th>Specifications</th>
+   </tr>
+   <tr>
+      {% for specs in specifications %}
+      <td>{{ specs|linebreaks }}</td>
+      {% empty %}
+      <td>No data</td>
+      {% endfor %}
+   </tr>
+</table>
+
+ 
+ <p><a href="{% url 'job_order:add_parts' equipment.id %}">Add parts</a></p>
+ <p><a href="{% url 'job_order:my_main' %}">Back to main menu</a></p>
+{% endblock %}

@@ -1,0 +1,12 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+
+<p><a href="{% url 'job_order:equipment' equipment.id %}">{{ equipment }}</a></p>
+<h2>Edit equipment</h2>
+<form action="{% url 'job_order:edit_equipment' equipment.id %}" method="post">
+ {% csrf_token %}
+ {{ form.as_p }}
+ <button name="submit">Save changes</button>
+</form>
+{% endblock %}

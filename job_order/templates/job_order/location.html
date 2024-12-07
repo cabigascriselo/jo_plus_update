@@ -1,0 +1,15 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h3>Location ID: {{ location.id }}</h3>
+<h3>Location: {{ location }}</h3>
+ <ul>
+  {% for process in processes %}
+     <li><a href="{% url 'job_order:process' process.id %}">{{ process }}</a></li>
+  {% empty %}
+     <li>No data</li>
+  {% endfor %}
+ </ul>
+
+<p><a href="{% url 'job_order:my_main' %}">Back to main menu</a></p>
+{% endblock %}

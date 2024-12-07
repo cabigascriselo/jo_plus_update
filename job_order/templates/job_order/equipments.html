@@ -1,0 +1,14 @@
+{%extends 'job_order/layout.html'%}
+
+{% block page_header %}
+    <h1>Equiments</h1>
+{% endblock page_header %}
+
+{% block body %}
+{% for equipment in equipments %}
+    <li>{{ equipment }}</li>
+{% empty %}
+    <li>No data added</li>
+{% endfor %}
+    <p><a href="{% url 'job_order:my_main' %}">Back to main menu</a></p>
+{% endblock %}

@@ -1,0 +1,40 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h3>Job Order List</h3>
+      <style>
+         table, th, td {
+         border: 1px solid black;
+         border-collapse: collapse;
+         }
+      </style>
+      <table style="width:100%">
+         <tr>
+            <th>Details</th>
+            <th>JO ID</th>
+            <th>Date</th>
+            <th>Equipment</th>
+            <th>Requestor</th>
+            <th>Complaint</th>
+            <th>Open</th>
+         </tr>
+   {% for pdf_report in pdf_reports %}
+         <tr>
+            <td>
+            <a href="{% url 'job_order:generate_Filepdf' pdf_report.id %}">Download pdf</a>
+            </td>
+            <td>{{ pdf_report.id }}</td>
+            <td>{{ pdf_report.date }}</td>
+            <td>{{ pdf_report.equipment }}</td>
+            <td>{{ pdf_report.requestor }}</td>
+            <td>{{ pdf_report.complaint }}</td>
+            <td>{{ pdf_report.status }}</td>
+         </tr>
+      
+  {% empty %}
+     <li>No data</li>
+  {% endfor %}
+      </table>
+<p><a href="{% url 'job_order:my_main' %}">Back to main menu</a></p>
+<p><a href="{% url 'job_order:jo_excel' %}">Download file in excel format</a></p>
+{% endblock %}

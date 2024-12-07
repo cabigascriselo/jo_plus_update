@@ -1,0 +1,18 @@
+{%extends 'job_order/layout.html'%}
+
+
+{% block page_header %}
+<div class="jumbotron">
+    <h1 class="display-3">JO Plus</h1>
+        <p class="lead">Job Order Plus is a web application developed by Utilities Operations 
+            to streamline the monitoring and management of job orders. The platform allows users to track 
+            job orders in real-time, improving both speed and accuracy in their daily operations. 
+            By providing an easy-to-use interface, Job Order Plus helps Utilities Operations stay on top of their workload, manage requests, and ensure timely 
+            completion of tasks.
+        </p>
+        
+    <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+role="button">Register &raquo;</a>
+</div>
+{% endblock page_header %}
+

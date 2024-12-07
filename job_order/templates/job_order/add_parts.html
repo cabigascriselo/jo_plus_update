@@ -1,0 +1,11 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h2>Add parts</h2>
+<p><a>{{ equipment }}</a></p>
+<form action="{% url 'job_order:add_parts' equipment.id %}" method="post">
+ {% csrf_token %}
+ {{ form.as_p }}
+ <button name="submit">Add parts</button>
+</form>
+{% endblock %}

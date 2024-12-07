@@ -1,0 +1,19 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h2>Job Order Main Page</h2>
+<ul>
+ <li>Display list</li>
+ <ul>
+   <li><a href="{% url 'job_order:locations' %}">Location</a></li>
+   <li>Process</li>
+   <li><a href="{% url 'job_order:jo_lists' %}">Job Order List</a></li>
+ </ul>
+ <li>Forms</li>
+  <ul>
+    <li><a href="{% url 'job_order:create_jo' %}">Create Job Order</a></li>
+   
+
+  </ul>
+</ul>
+{% endblock %}

@@ -1,0 +1,32 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h3>Open Job Order List</h3>
+      <style>
+         table, th, td {
+         border: 1px solid black;
+         border-collapse: collapse;
+         }
+      </style>
+      <table style="width:100%">
+         <tr>
+            <th>JO ID</th>
+            <th>Date</th>
+            <th>Equipment</th>
+            <th>Comlaint</th>
+            <th>As of today</th>
+         </tr>
+   {% for jo_list in jo_lists %}
+         <tr>
+            <td>{{ jo_list.id }}</td>
+            <td>{{ jo_list.date }}</td>
+            <td>{{ jo_list.equipment }}</td>
+            <td>{{ jo_list.complaint }}</td>
+            <td>{{ jo_list.lead_times }} day/s</td>
+         </tr>
+  {% empty %}
+     <li>No data</li>
+  {% endfor %}
+      </table>
+<p><a href="{% url 'job_order:my_main' %}">Back to main menu</a></p>
+{% endblock %}

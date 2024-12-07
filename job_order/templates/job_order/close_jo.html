@@ -1,0 +1,37 @@
+{%extends 'job_order/layout.html'%}
+{% load bootstrap4 %}
+{% block page_header %}
+    <h2>Close Job Order</h2>
+{% endblock page_header %}
+{% block body %}
+      <style>
+         table, th, td {
+         border: 1px solid black;
+         border-collapse: collapse;
+         }
+      </style>
+      <table style="width:100%">
+         <tr>
+            <th>JO ID</th>
+            <th>Date</th>
+            <th>Equipment</th>
+            <th>Requestor</th>
+            <th>Complaint</th>
+            <th>Open</th>
+         </tr>
+   {% for close in jo_close %}
+         <tr>
+            <td>{{ close.id }}</td>
+            <td>{{ close.date }}</td>
+            <td>{{ close.equipment }}</td>
+            <td>{{ close.requestor }}</td>
+            <td>{{ close.complaint }}</td>
+            <td>{{ close.status }}</td>
+         </tr>
+      
+  {% empty %}
+     <li>No data</li>
+  {% endfor %}
+      </table>
+<p><a href="{% url 'job_order:my_main' %}">Back to main menu</a></p>
+{% endblock %}

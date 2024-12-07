@@ -1,0 +1,16 @@
+{%extends 'job_order/layout.html'%}
+{% load bootstrap4 %}
+{% block page_header %}
+    <h2>Edit Job Order</h2>
+{% endblock page_header %}
+{% block body %}
+<form action="{% url 'job_order:edit_jo' job_order.id %}" method="post">
+ {% csrf_token %}
+ {% bootstrap_form form %}
+ {% buttons %}
+    <button name="submit" class="btn btn-primary"> Save changes</button>
+ {% endbuttons %}
+ <input type="hidden" name="next"
+ value="{% url 'job_order:index' %}" />
+</form>
+{% endblock %}

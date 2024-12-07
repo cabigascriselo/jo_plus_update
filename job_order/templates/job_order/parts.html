@@ -1,0 +1,13 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h3>Equipment parts</h3>
+ <ul>
+  {% for parts in parts %}
+     <li>{{ parts }}</li>
+  {% empty %}
+     <li>No data</li>
+  {% endfor %}
+ </ul>
+<p><a href="{% url 'job_order:my_main' %}">Back to main menu</a></p>
+{% endblock %}

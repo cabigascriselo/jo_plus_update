@@ -1,0 +1,12 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h2>Welcome to Job Order Plus</h2>
+<p><a href="{% url 'job_order:process' process.id %}">{{ process }}</a></p>
+
+<form action="{% url 'job_order:add_equipment' process.id %}" method="post">
+ {% csrf_token %}
+ {{ form.as_p }}
+ <button name="submit">Add equipment</button>
+</form>
+{% endblock %}

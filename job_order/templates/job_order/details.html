@@ -1,0 +1,70 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h3>ComplaintL: {{ details }}</h3>
+<style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+</style>
+
+<table style="width:100%">
+    <tr>
+      <th>Parameters</th>
+      <th>Data</th> 
+    </tr>
+    <tr>
+      <td>Job Order ID</td>
+      <td>{{ details.id }}</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>{{ details.date }}</td>
+    </tr>
+    <tr>
+      <td>Issued to</td>
+      <td>{{ details.issued_to }}</td>
+    </tr>
+    <tr>
+        <td>Location</td>
+        <td>{{ details.location }}</td>
+    </tr>
+    <tr>
+        <td>Process</td>
+        <td>{{ details.process }}</td>
+    </tr>
+    <tr>
+        <td>Equipment</td>
+        <td>{{ details.equipment }}</td>
+    </tr>
+    <tr>
+        <td>Parts</td>
+        <td>{{ details.parts }}</td>
+    </tr>
+    <tr>
+        <td>Service Type</td>
+        <td>{{ details.service_type }}</td>
+    </tr>
+    <tr>
+        <td>Requestor</td>
+        <td>{{ details.requestor }}</td>
+    </tr>
+    <tr>
+        <td>Comlaint</td>
+        <td>{{ details.complaint }}</td>
+    </tr>
+    <tr>
+        <td>Department</td>
+        <td>{{ details.department }}</td>
+    </tr>
+    <tr>
+        <td>Approver</td>
+        <td>{{ details.approver }}</td>
+    </tr>
+    <tr>
+        <td>Open</td>
+        <td>{{ details.status }}</td>
+    </tr>
+  </table>
+  {% endblock %}

@@ -1,0 +1,73 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h3>Complaint: {{ jo_list }}</h3>
+<p><a href="{% url 'job_order:edit_jo' jo_list.id %}">Edit Job Order</a></p>
+<style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+</style>
+
+<table style="width:100%">
+    <tr>
+      <th>Parameters</th>
+      <th>Data</th> 
+    </tr>
+    <tr>
+      <td>Job Order ID</td>
+      <td>{{ jo_list.id }}</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>{{ jo_list.date }}</td>
+    </tr>
+    <tr>
+      <td>Issued to</td>
+      <td>{{ jo_list.issued_to }}</td>
+    </tr>
+    <tr>
+        <td>Location</td>
+        <td>{{ jo_list.location }}</td>
+    </tr>
+    <tr>
+        <td>Process</td>
+        <td>{{ jo_list.process }}</td>
+    </tr>
+    <tr>
+        <td>Equipment</td>
+        <td>{{ jo_list.equipment }}</td>
+    </tr>
+    <tr>
+        <td>Parts</td>
+        <td>{{ jo_list.parts }}</td>
+    </tr>
+    <tr>
+        <td>Service Type</td>
+        <td>{{ jo_list.service_type }}</td>
+    </tr>
+    <tr>
+        <td>Requestor</td>
+        <td>{{ jo_list.requestor }}</td>
+    </tr>
+    <tr>
+        <td>Comlaint</td>
+        <td>{{ jo_list.complaint }}</td>
+    </tr>
+    <tr>
+        <td>Department</td>
+        <td>{{ jo_list.department }}</td>
+    </tr>
+    <tr>
+        <td>Approver</td>
+        <td>{{ jo_list.approver }}</td>
+    </tr>
+    <tr>
+        <td>Open</td>
+        <td>{{ jo_list.status }}</td>
+    </tr>
+  </table>
+
+  <p></p>
+  {% endblock %}

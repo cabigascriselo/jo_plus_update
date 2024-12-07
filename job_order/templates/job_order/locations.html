@@ -1,0 +1,12 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h3>Locations:</h3>
+ <ul>
+  {% for location in locations %}
+  <li><a href="{% url 'job_order:location' location.id %}">{{ location }}</a></li>
+  {% empty %}
+     <li>No data</li>
+  {% endfor %}
+ </ul>
+{% endblock %}
