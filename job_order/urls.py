@@ -30,4 +30,5 @@ urlpatterns = [
  path('time_diff/', views.time_diff, name='time_diff'),
  path('starter/', views.starter, name='starter'),
  path('close_jo', views.close_jo, name='close_jo'),
+ path('disabled_register/', views.disabled_register, name='disabled_register')
 ]

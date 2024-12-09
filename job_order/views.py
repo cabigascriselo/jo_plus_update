@@ -352,3 +352,8 @@ def close_jo(request):
 
     context = {'jo_close': jo_close}
     return render(request, 'job_order/close_jo.html', context)
+
+
+def disabled_register(request):
+    """Pop up message"""
+    return HttpResponse('DISABLED REGISTER PAGE')
