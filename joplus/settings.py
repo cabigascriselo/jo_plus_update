@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^-4s_#(dah*e1&ie)m8url@ap=&-jpj*u4rk0u)n^2w*awux(e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #ALLOWED_HOSTS = ['joplus1-ugtxsx54.b4a.run', 'localhost', '127.0.0.1']
 ALLOWED_HOSTS = ['joplus1-ugtxsx54.b4a.run']
@@ -157,4 +157,4 @@ INTERNAL_IPS = [
 
 
 #ALLOWED_HOSTS = []
-#ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]").split(",")
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]").split(",")
