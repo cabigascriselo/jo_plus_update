@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-^-4s_#(dah*e1&ie)m8url@ap=&-jpj*u4rk0u)n^2w*awux(e
 DEBUG = True
 
 #ALLOWED_HOSTS = ['joplus1-ugtxsx54.b4a.run', 'localhost', '127.0.0.1']
-ALLOWED_HOSTS = ['joplus1-ugtxsx54.b4a.run', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['joplus1-ugtxsx54.b4a.run']
 
 
 # Application definition
