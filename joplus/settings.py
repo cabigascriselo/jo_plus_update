@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-^-4s_#(dah*e1&ie)m8url@ap=&-jpj*u4rk0u)n^2w*awux(e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'import_export',
+    #'import_export',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
 
 
 ]
@@ -129,7 +129,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 #MEDIE_URL = '/media/'
 #STATIC_ROOT = os.path.join(BASE_DIR, "static")
 #MEDIA_ROOT = os.path.join(BASE_DIR, "media_root")
@@ -151,8 +151,8 @@ INTERNAL_IPS = [
 
 
 #Heroku settings
-import django_heroku
-django_heroku.settings(locals())
+#import django_heroku
+#django_heroku.settings(locals())
 
 
 #ALLOWED_HOSTS = []
