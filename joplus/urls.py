@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('', include('job_order.urls')),
-    path("__debug__/", include("debug_toolbar.urls")),
+    #path("__debug__/", include("debug_toolbar.urls")),
 ]
 
 #urlpatterns += static(settings.MEDIA_URL, docoment_root=settings.MEDIA_ROOT)
