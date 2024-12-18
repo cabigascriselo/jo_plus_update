@@ -89,10 +89,19 @@ WSGI_APPLICATION = 'joplus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
+    }
+}
+'''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',  # Change to your database engine, e.g., 'django.db.backends.postgresql'
+        'NAME': BASE_DIR / 'db.sqlite3',        # Change to your database name
     }
 }
 
@@ -152,11 +161,6 @@ INTERNAL_IPS = [
 	"127.0.0.1",
 	# ...
 	]
-
-
-#Heroku settings
-#import django_heroku
-#django_heroku.settings(locals())
 
 
 #ALLOWED_HOSTS = []
