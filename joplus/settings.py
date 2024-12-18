@@ -161,3 +161,8 @@ INTERNAL_IPS = [
 
 #ALLOWED_HOSTS = []
 #ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]").split(",")
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://joplus1-ugtxsx54.b4a.run',  # Add this line
+]
