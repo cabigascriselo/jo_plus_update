@@ -148,6 +148,7 @@ def create_jo(request):
     return render(request, 'job_order/create_jo.html', context)
 
 
+@login_required
 def edit_jo(request, job_order_id):
     """Edit existing job order"""
     job_order = Job_Order.objects.get(id=job_order_id) 
@@ -166,6 +167,7 @@ def edit_jo(request, job_order_id):
     return render(request, 'job_order/edit_jo.html', context)
 
 
+@login_required
 def jo_list(request, jo_list_id):
     jo_list = Job_Order.objects.get(id=jo_list_id)
     if jo_list.date:
@@ -174,6 +176,7 @@ def jo_list(request, jo_list_id):
     return render(request, 'job_order/jo_list.html', context) 
 
 
+@login_required
 def edit_equipment(request, equipment_id):
     """Edit equipment"""
     equipment = Equipment.objects.get(id=equipment_id)
@@ -193,6 +196,7 @@ def edit_equipment(request, equipment_id):
     return render(request, 'job_order/edit_equipment.html', context)
 
 
+@login_required
 def edit_parts(request, part_id):
     """Edit parts"""
     part = EquipmentParts.objects.get(id=part_id)
@@ -212,12 +216,14 @@ def edit_parts(request, part_id):
     return render(request, 'job_order/edit_parts.html', context)
 
 
+@login_required
 def detail(request, detail_id):
     detail = Job_Order.objects.get(id=detail_id)
     context = {'detail': detail}
     return render(request, 'job_order/details.html', context)
 
 
+@login_required
 def pdf_report(request):
     pdf_reports = Job_Order.objects.all()
     for pdf_report in pdf_reports:
@@ -226,6 +232,7 @@ def pdf_report(request):
     return render(request, 'job_order/pdf_report.html', context)
 
 
+@login_required
 def generate_Filepdf(request, file_id):
     
     from io import BytesIO
@@ -283,6 +290,7 @@ def generate_Filepdf(request, file_id):
     return response
 
 
+@login_required
 def jo_excel(request):
     # Query the Job Order model to get all records
  
@@ -304,6 +312,7 @@ def jo_excel(request):
     return response
 
 
+@login_required
 def time_diff(request):
     jo_lists = Job_Order.objects.filter(status=True)
     now = datetime.now()
@@ -346,6 +355,7 @@ def starter(request):
     return render(request, 'job_order/starter.html', context)
 
 
+@login_required
 def close_jo(request):
     """close job order"""
     jo_close = Job_Order.objects.filter(status=False) 
@@ -354,6 +364,7 @@ def close_jo(request):
     return render(request, 'job_order/close_jo.html', context)
 
 
+@login_required
 def disabled_register(request):
     """Pop up message"""
     return HttpResponse('DISABLED REGISTER PAGE')
