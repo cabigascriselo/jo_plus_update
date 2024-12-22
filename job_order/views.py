@@ -20,6 +20,7 @@ def index(request):
     return render(request, 'job_order/index.html')
 
 
+@login_required
 def my_main(request):
     return render(request, 'job_order/my_main.html')
 
@@ -45,6 +46,7 @@ def process(request, process_id):
     return render(request, 'job_order/process.html', context)
 
 
+@login_required
 def add_equipment(request, process_id):
     """Add equipment to a particular process"""
     process = Process.objects.get(id=process_id)
@@ -65,6 +67,7 @@ def add_equipment(request, process_id):
     return render(request, 'job_order/add_equipment.html', context)
 
 
+@login_required
 def add_parts(request, equipment_id):
     """Add parts to the equipment"""
     #No data submitted, create blank form
@@ -130,6 +133,20 @@ def jo_lists(request):
     return render(request, 'job_order/jo_lists.html', context)
 
 
+def supervisor_list(request):
+    jo_lists = Job_Order.objects.filter(owner=request.user)
+    jo_lists = Job_Order.objects.filter(status=True)
+    for jo_list in jo_lists:
+        jo_list.date = jo_list.date.strftime("%m/%d/%Y")
+    
+    close_lists = Job_Order.objects.filter(status=False)
+    for close_list in close_lists:
+        close_list.date = close_list.date.strftime("%m/%d/%Y")
+    
+    context = {'jo_lists': jo_lists, 'close_lists': close_lists}
+    return render(request, 'job_order/supervisor_list.html', context)
+
+
 @login_required
 def create_jo(request):
     """Create job order"""
@@ -141,7 +158,7 @@ def create_jo(request):
         form = JobOrderForm(data=request.POST) 
     if form.is_valid():
         form.save()
-        return redirect('job_order:jo_lists') 
+        return redirect('job_order:supervisor_list') 
 
     #Display blank or invalid form
     context = {'form': form}
@@ -167,7 +184,6 @@ def edit_jo(request, job_order_id):
     return render(request, 'job_order/edit_jo.html', context)
 
 
-@login_required
 def jo_list(request, jo_list_id):
     jo_list = Job_Order.objects.get(id=jo_list_id)
     if jo_list.date:
@@ -312,7 +328,6 @@ def jo_excel(request):
     return response
 
 
-@login_required
 def time_diff(request):
     jo_lists = Job_Order.objects.filter(status=True)
     now = datetime.now()
@@ -331,7 +346,6 @@ def time_diff(request):
 
 
 def starter(request):
-    
     xy = {}
     keysList = []
     valueList = []
@@ -355,7 +369,7 @@ def starter(request):
     return render(request, 'job_order/starter.html', context)
 
 
-@login_required
+
 def close_jo(request):
     """close job order"""
     jo_close = Job_Order.objects.filter(status=False) 
@@ -364,7 +378,7 @@ def close_jo(request):
     return render(request, 'job_order/close_jo.html', context)
 
 
-@login_required
+
 def disabled_register(request):
     """Pop up message"""
     return HttpResponse('DISABLED REGISTER PAGE')

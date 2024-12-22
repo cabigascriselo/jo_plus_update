@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+
 
 def register(request):
    """Register a new user."""
@@ -23,7 +25,9 @@ def register(request):
    return render(request, 'registration/register.html', context)
 
 
-def logout(request):
+def logout_user(request):
    logout(request)
-   context = {'message': 'You have been logged out'}
-   return render(request, 'users/login.html', context)
+   messages.success(request, ('You have been logout, have a hice day'))
+   return redirect('job_order:index')
+
+

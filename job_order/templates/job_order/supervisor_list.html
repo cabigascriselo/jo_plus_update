@@ -1,0 +1,63 @@
+{%extends 'job_order/layout.html'%}
+
+{% block body %}
+<h3>Open Job Order </h3>
+      <style>
+         table, th, td {
+         border: 1px solid black;
+         border-collapse: collapse;
+         }
+      </style>
+      <table style="width:100%">
+         <tr>
+            <th>JO ID</th>
+            <th>Date</th>
+            <th>Equipment</th>
+            <th>Requestor</th>
+            <th>Complaint</th>
+         </tr>
+   {% for jo_list in jo_lists %}
+         <tr>
+            <td>{{ jo_list.id }}</td>
+            <td>{{ jo_list.date }}</td>
+            <td>{{ jo_list.equipment }}</td>
+            <td>{{ jo_list.requestor }}</td>
+            <td>{{ jo_list.complaint }}</td>
+         </tr>
+      
+  {% empty %}
+     <li>No data</li>
+  {% endfor %}
+      </table>
+
+
+<h3>Closed Job Order </h3>
+      <style>
+         table, th, td {
+         border: 1px solid black;
+         border-collapse: collapse;
+         }
+      </style>
+      <table style="width:100%">
+         <tr>
+            <th>JO ID</th>
+            <th>Date</th>
+            <th>Equipment</th>
+            <th>Requestor</th>
+            <th>Complaint</th>
+         </tr>
+   {% for closed_list in closed_lists %}
+         <tr>
+            <td>{{ closed_list.id }}</td>
+            <td>{{ closed_list.date }}</td>
+            <td>{{ closed_list.equipment }}</td>
+            <td>{{ closed_list.requestor }}</td>
+            <td>{{ closed_list.complaint }}</td>
+         </tr>
+      
+  {% empty %}
+     <li>No data</li>
+  {% endfor %}
+      </table>
+<p><a href="{% url 'job_order:my_main' %}">Back to main menu</a></p>
+{% endblock %}
