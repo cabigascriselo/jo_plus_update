@@ -134,7 +134,7 @@ def jo_lists(request):
 
 
 def supervisor_list(request):
-    jo_lists = Job_Order.objects.filter(owner=request.user)
+    #jo_lists = Job_Order.objects.filter(owner=request.user)
     jo_lists = Job_Order.objects.filter(status=True)
     for jo_list in jo_lists:
         jo_list.date = jo_list.date.strftime("%m/%d/%Y")

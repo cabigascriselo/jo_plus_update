@@ -7,7 +7,7 @@ app_name = 'users'
 
 urlpatterns = [
  #Include django default urls
-    path('', include('django.contrib.auth.urls')),
+   path('', include('django.contrib.auth.urls')),
 
  # Log out 
    path('logout_user/', views.logout_user, name='logout'),

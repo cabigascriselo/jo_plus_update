@@ -90,7 +90,7 @@ class Job_Order(models.Model):
  approver = models.ForeignKey(Approver, on_delete=models.CASCADE, related_name='approve_by')
  status = models.BooleanField(default=True)
  lead_times = models.IntegerField(default=0)
- owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+ #remove function owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
 
  @property

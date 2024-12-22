@@ -183,3 +183,5 @@ INTERNAL_IPS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://joplus1-ugtxsx54.b4a.run',  # Add this line
 ]
+
+#AUTH_USER_MODEL = 'job_order.CustomUser'
