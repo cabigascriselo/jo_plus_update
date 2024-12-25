@@ -22,8 +22,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('django.contrib.auth.urls')),
-    path('users/', include('users.urls')),
+    #path('users/', include('django.contrib.auth.urls')),
+    path('account/', include('account.urls')),
     path('', include('job_order.urls')),
     #path("__debug__/", include("debug_toolbar.urls")),
 ]

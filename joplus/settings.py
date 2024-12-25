@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     #My application
     'job_order',
     #Users
-    'users',
+    #'users.apps.UsersConfig',
+
+    'account',
+
     #Third part apps
     'bootstrap4',
     #Charts
@@ -165,7 +168,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #My settings
-LOGIN_URL = 'users:login'
+LOGIN_URL = 'account:login'
 # LOGOUT_REDIRECT_URL = '/'
 
 
@@ -184,4 +187,4 @@ CSRF_TRUSTED_ORIGINS = [
     'https://joplus1-ugtxsx54.b4a.run',  # Add this line
 ]
 
-#AUTH_USER_MODEL = 'job_order.CustomUser'
+AUTH_USER_MODEL = 'account.User'

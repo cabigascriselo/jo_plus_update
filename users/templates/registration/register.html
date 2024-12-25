@@ -1,9 +1,0 @@
-{% extends "job_order/layout.html" %}
-{% block body %}
-<form method="post" action="{% url 'users:register' %}">
-{% csrf_token %}
-{{ form.as_p }}
-<button name="submit">Register</button>
-<input type="hidden" name="next" value="{% url 'job_order:index' %}" />
-</form>
-{% endblock %}

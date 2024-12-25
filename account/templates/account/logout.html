@@ -1,4 +1,6 @@
 {% extends "job_order/layout.html" %}
 {% block body %}
-<p>Thank you for using this application</p>
+{% if msg %}
+<p>{{ msg }}</p>
+{% endif %}
 {% endblock %}

@@ -1,16 +1,25 @@
 {% extends "job_order/layout.html" %}
 {% load bootstrap4 %}
+
 {% block page_header %}
 <h2>Log in to your account.</h2>
 {% endblock page_header %}
+
 {% block body %}
-    <form method="post" action="{% url 'users:login' %}" class="form">
+    <form method="post" action="{% url 'account:login_view' %}" class="form">
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
             <button name="submit" class="btn btn-primary">Log in</button>
         {% endbuttons %}
-    <input type="hidden" name="next" value="{% url 'job_order:locations' %}" />
-</form>
+    <input type="hidden" name="next"
+    value="{% url 'job_order:index' %}" />
+    </form>
+    {% if msg %}
+        {% for message in msg %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
 {% endblock %}
+
 
