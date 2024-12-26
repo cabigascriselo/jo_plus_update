@@ -3,7 +3,7 @@ from .models import (
  Location, Process, Equipment, EquipmentSpecs, EquipmentParts, Requestor, Issued_To, 
  Approver, Service_Type, Department, Job_Order
 )
-from import_export.admin import ImportExportModelAdmin
+#from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
 admin.site.register(Location)
@@ -16,4 +16,4 @@ admin.site.register(Issued_To)
 admin.site.register(Approver)
 admin.site.register(Service_Type)
 admin.site.register(Department)
-admin.site.register(Job_Order, ImportExportModelAdmin)
+#admin.site.register(Job_Order, ImportExportModelAdmin)

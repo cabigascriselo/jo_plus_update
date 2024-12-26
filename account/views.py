@@ -37,6 +37,9 @@ def login_view(request):
             elif user is not None and user.is_uto:
                 login(request, user)
                 return redirect('job_order:index')
+            elif user is not None and user.is_eid:
+                login(request, user)
+                return redirect('job_order:index')
             elif user is not None and user.is_qa:
                 login(request, user)
                 return redirect('job_order:index')
