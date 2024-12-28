@@ -25,24 +25,20 @@
 #To turn off your Docker container
 #docker stop container_id
 
-#2 Use an official Python runtime as a parent image
-#FROM python:3.10-slim
+# Use an official Python runtime as a parent image
 FROM python:3.11
 
-#3 Set the working directory in the container
+# Set the working directory in the container
 WORKDIR /app
 
-#4 Copy the requirements.txt file into the container
-COPY requirements.txt /app/
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-#5 Install dependencies
+# Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-#6 Copy the current directory contents into the container at /app
-COPY . /app/
-
-#7 Expose the port the app runs on
+# Make port 8000 available to the world outside this container
 EXPOSE 8000
 
-#8 Command to run the Django development server (for local development)
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Run the application
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "joplus.wsgi:application"]
