@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-^-4s_#(dah*e1&ie)m8url@ap=&-jpj*u4rk0u)n^2w*awux(e
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'joplus1-ugtxsx54.b4a.run', 
+    'joplus2-6x68fk4y.b4a.run', 
     'localhost', 
     '127.0.0.1']
 #ALLOWED_HOSTS = ['joplus1-ugtxsx54.b4a.run']
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     #Users
     #'users.apps.UsersConfig',
 
-    'account',
+    'account.apps.AccountConfig',
 
     #Third part apps
     'bootstrap4',
@@ -185,7 +185,8 @@ INTERNAL_IPS = [
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://joplus1-ugtxsx54.b4a.run',  # Add this line
+    'https://joplus2-6x68fk4y.b4a.run/', # Add this line
+    
 ]
 
 AUTH_USER_MODEL = 'account.User'
